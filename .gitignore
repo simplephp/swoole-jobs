@@ -1,0 +1,7 @@
+.idea/*
+vendor/*
+.DS_Store*
+.code-workspace
+log/*
+composer.lock
+src/master.pid

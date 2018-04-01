@@ -50,13 +50,13 @@ class Process
     {
         $this->config                    =  Config::getConfig();
         $this->logger                    = Logs::getLogger($this->config['logPath'] ? $this->config['logPath'] : '', $this->config['logSaveFileApp'] ? $this->config['logSaveFileApp'] : '');
-        $this->topics                    =$this->config['job']['topics'] ? $this->config['job']['topics'] : [];
-        $this->processName               = $this->config['processName'] ? $this->config['processName'] : $this->processName;
-        $this->excuteTime                = $this->config['excuteTime'] ? $this->config['excuteTime'] : $this->excuteTime;
-        $this->queueMaxNum               = $this->config['queueMaxNum'] ? $this->config['queueMaxNum'] : $this->queueMaxNum;
-        $this->queueTickTimer            = $this->config['queueTickTimer'] ? $this->config['queueTickTimer'] : $this->queueTickTimer;
-        $this->messageTickTimer          = $this->config['messageTickTimer'] ? $this->config['messageTickTimer'] : $this->messageTickTimer;
-        $this->logSaveFileWorker         = $this->config['logSaveFileWorker'] ? $this->config['logSaveFileWorker'] : $this->logSaveFileWorker;
+        $this->topics                    = isset($this->config['job']['topics']) ? $this->config['job']['topics'] : [];
+        $this->processName               = isset($this->config['processName']) ? $this->config['processName'] : $this->processName;
+        $this->excuteTime                = isset($this->config['excuteTime']) ? $this->config['excuteTime'] : $this->excuteTime;
+        $this->queueMaxNum               = isset($this->config['queueMaxNum']) ? $this->config['queueMaxNum'] : $this->queueMaxNum;
+        $this->queueTickTimer            = isset($this->config['queueTickTimer']) ? $this->config['queueTickTimer'] : $this->queueTickTimer;
+        $this->messageTickTimer          = isset($this->config['messageTickTimer']) ? $this->config['messageTickTimer'] : $this->messageTickTimer;
+        $this->logSaveFileWorker         = isset($this->config['logSaveFileWorker']) ? $this->config['logSaveFileWorker'] : $this->logSaveFileWorker;
 
         $this->beginTime=time();
         //该变量需要在多进程共享
